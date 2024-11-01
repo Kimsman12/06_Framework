@@ -11,7 +11,7 @@
   <h1>할 일 수정</h1>
   <hr>
 
-  <form action="/todo/update" method="POST">
+  <form action="/todo/update" method="POST" id="updateForm">
     <div class="form-group">
       <label for="todoTitle">제목 :</label>
       <input type="text" id="todoTitle" name="todoTitle" placeholder="제목 입력">
@@ -28,7 +28,7 @@
     <button type="submit" class="btn">수정하기</button>
   </form>
 
-  <footer>footer 조각으로 대체</footer>
+  <th:block th:replace="~{common/footer}"></th:block>
 
   <script src="/js/update.js"></script>
 </body>

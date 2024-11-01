@@ -11,15 +11,15 @@
 
   <p th:text="${testTitle}">todoNo가 1인 할 일 제목 조회</p>
 
-  <form action="/todo/add" method="POST">
+  <form action="/todo/add" method="POST" id="addForm">
     <h4>할 일 추가</h4>
     <div>
-      제목 : <input type="text" name="todoTitle">
+      제목 : <input type="text" name="todoTitle" id="todoTitle">
     </div>
     <div>
-      <textarea name="todoContent" cols="50" rows="5" placeholder="상세 내용"></textarea>
+      <textarea name="todoContent" id="todoContent" cols="50" rows="5" placeholder="상세 내용"></textarea>
     </div>
-    <button>추가 하기</button>
+    <button id="addBtn">추가 하기</button>
   </form>
 
   <hr>
@@ -58,6 +58,7 @@
    <!-- 공통 푸터 내용 -->
   
   <th:block th:replace="~{common/footer}"></th:block>
+  <script src="/js/main.js"></script>
   
 </body>
 </html>
