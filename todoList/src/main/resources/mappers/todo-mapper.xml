@@ -111,11 +111,16 @@
   WHERE TODO_NO = #{todoNo}
   </select>
   
+  <!-- 전체 할일 개수 조회 -->
+  <select id="getTotalCount" resultType="_int">
+  	SELECT COUNT(*) FROM TB_TODO
+  </select>
   
-  
-  
-  
-  
+  <!-- 완료된 할 일 개수 조회 -->
+  <select id="getCompleteCount2">
+  	SELECT COUNT(*) FROM TB_TODO
+  	WHERE COMPLETE = 'Y'
+  </select>
   
   
   

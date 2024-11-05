@@ -97,19 +97,14 @@ public class TodoServiceImpl implements TodoService{
 		return mapper.changeComplete(todo);
 	}
 
-
-
 	@Override
-	public int todoUpdate(int todoNo, String todoTitle, String todoContent) {
-		
-		Todo todo = new Todo();
-		todo.setTodoNo(todoNo);
-		todo.setTodoTitle(todoTitle);
-		todo.setTodoContent(todoContent);
-		
+	public int todoUpdate(Todo todo) {
 		
 		return mapper.todoUpdate(todo);
 	}
+
+
+
 
 	@Override
 	public int todoDelete(int todoNo) {
@@ -123,9 +118,26 @@ public class TodoServiceImpl implements TodoService{
 		return mapper.updateSearch(todoNo);
 	}
 
+	// 전체 할 일 개수 조회
+	@Override
+	public int getTotalCount() {
+		
+		return mapper.getTotalCount();
+	}
 
+	@Override
+	public int getCompleteCount2() {
+		// TODO Auto-generated method stub
+		return mapper.getCompleteCount2();
+	}
 
-
-
-
+	// 할 일 목록 조회
+	@Override
+	public List<Todo> selectList() {
+		
+		return mapper.selectAll();
+	}
+	
+	
+	
 }

@@ -90,6 +90,15 @@ public interface TodoMapper {
 
 
 
+	int getTotalCount();
+
+
+
+	int getCompleteCount2();
+	
+
+
+
 
 
 	

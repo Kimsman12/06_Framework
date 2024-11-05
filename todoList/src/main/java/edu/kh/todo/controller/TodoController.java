@@ -118,31 +118,39 @@ public class TodoController {
 	
 	
 	@GetMapping("update")
-	public String updateForward(@RequestParam("todoNo") int todoNo, Model model) {
-		
-		Todo todo = service.updateSearch(todoNo);
-		
+	public String todoUpdate(@RequestParam("todoNo") int todoNo, Model model) {
+
+		// 상세조회 서비스 호출 -> 수정화면에 출력할 이전 내용
+		Todo todo = service.todoDetail(todoNo);
+
 		model.addAttribute("todo", todo);
-		
-		String url = "todo/update";
-		
-		return url;
+
+		return "todo/update";
 	}
 	
 	@PostMapping("update")
-	public String todoUpdate(@RequestParam("todoNo") int todoNo, @RequestParam("todoTitle") String todoTitle, @RequestParam("todoContent") String todoContent, 
-			RedirectAttributes ra) {
-		
-		int result = service.todoUpdate(todoNo, todoTitle, todoContent);
-		
+	public String todoUpdate(@ModelAttribute Todo todo, RedirectAttributes ra) {
+
+		// 수정 서비스 호출
+		int result = service.todoUpdate(todo);
+
+		String path = "redirect:";
 		String message = null;
-		
-		if(result > 0) message = "수정 성공!!!";
-		else message = "수정 실패...";
-		
+
+		if (result > 0) {
+			// 상세 조회로 리다이렉트
+			path += "/todo/detail?todoNo=" + todo.getTodoNo();
+			message = "수정 성공!!!";
+
+		} else {
+			// 다시 수정 화면으로 리다이렉트
+			path += "/todo/update?todoNo=" + todo.getTodoNo();
+			message = "수정 실패...";
+		}
+
 		ra.addFlashAttribute("message", message);
-		
-		return "redirect:detail?todoNo=" + todoNo;
+
+		return path;
 	}
 	
 	
