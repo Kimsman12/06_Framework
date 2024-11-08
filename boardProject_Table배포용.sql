@@ -42,7 +42,7 @@ INSERT INTO "MEMBER"
 VALUES(SEQ_MEMBER_NO.NEXTVAL, 
 			 'user01@kh.or.kr',
 			 '암호화된 비밀번호',
-			 '샘플1',
+			 '유저일',
 			 '01012341234',
 			 NULL,
 			 NULL,
@@ -50,10 +50,26 @@ VALUES(SEQ_MEMBER_NO.NEXTVAL,
 			 DEFAULT,
 			 DEFAULT
 );
-ROLLBACK;
+
 COMMIT;
 
 SELECT * FROM "MEMBER";
+
+-- 유저일 회원 암호화된 비밀번호로 업데이트(pass01!)
+
+UPDATE "MEMBER" SET MEMBER_PW = '$2a$10$baPpunnQuvDVvVpaQkYvIe0mzoGDvSoIOXqJy3WOd87zGO1aY4Fqa'
+WHERE MEMBER_NO = '1';
+
+SELECT MEMBER_NO, MEMBER_EMAIL, MEMBER_NICKNAME, MEMBER_PW, MEMBER_TEL, MEMBER_ADDRESS, PROFILE_IMG, AUTHORITY,
+TO_CHAR(ENROLL_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') ENROLL_DATE
+FROM "MEMBER"
+WHERE MEMBER_EMAIL = 'user01@kh.or.kr'
+AND MEMBER_DEL_FL = 'N';
+
+		SELECT COUNT(*)
+		FROM "MEMBER"
+		WHERE MEMBER_DEL_FL = 'N'
+		AND MEMBER_NICKNAME = '유저이';
 
 -----------------------------------------
 

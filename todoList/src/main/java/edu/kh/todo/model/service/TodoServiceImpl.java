@@ -29,7 +29,7 @@ public class TodoServiceImpl implements TodoService{
 	private TodoDAO dao;
 	
 	@Autowired // TodoMapper 인터페이스를 상속받은 자식 객체 의존성 주입(DI)
-	private TodoMapper mapper; // 자싯 객체가 sqlSessionTempalte을 내부적으로 이용
+	private TodoMapper mapper; // 자식 객체가 sqlSessionTempalte을 내부적으로 이용
 	
 	
 	// (TEST) todoNo가 1인 할 일 제목 조회
