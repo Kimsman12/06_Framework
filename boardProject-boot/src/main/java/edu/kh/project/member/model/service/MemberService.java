@@ -30,6 +30,10 @@ public interface MemberService {
 	 */
 	int signup(Member inputMember, String[] memberAddress);
 
+
+
+
+
 	
 
 }

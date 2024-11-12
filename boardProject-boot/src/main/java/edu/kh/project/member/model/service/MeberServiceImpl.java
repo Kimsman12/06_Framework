@@ -112,4 +112,30 @@ public class MeberServiceImpl implements MemberService{
 		// 회원가입 mapper 메서드 호출
 		return mapper.signup(inputMember);
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

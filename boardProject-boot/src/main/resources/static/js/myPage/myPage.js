@@ -25,8 +25,15 @@ function execDaumPostcode() {
     }).open();
   }
   
-  // 주소 검색 버튼 클릭 시
-  document.querySelector("#searchAddress").addEventListener("click", execDaumPostcode);
+  // 주소 검색 버튼 클릭 시 (myPage-info.html 외에는 문제가 발생할 수 있는 코드)
+  // document.querySelector("#searchAddress").addEventListener("click", execDaumPostcode);
+
+
+  const searchAddress = document.querySelector("searchAddress");
+
+  if(searchAddress != null) { // 화면상에 id가 searchAddress인 요소가 존재하는 경우에만
+    searchAddress.addEventListener("click", execDaumPostcode); // 이벤트리스너 발생
+  }
 
 const updateInfo = document.querySelector("#updateInfo"); // form 태그
 
